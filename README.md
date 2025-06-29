@@ -22,29 +22,8 @@ Notify stakeholders about out-of-stock items
 Display real-time inventory through an authenticated dashboard
 
 🔧 Architecture Workflow
-text
-Copy code
-+-------------------+
-|  Inventory File   |
-|  (CSV in S3)      |
-+--------+----------+
-         |
-         v
-+-------------------+      DynamoDB Streams      +-------------------+
-|   Lambda:         |--------------------------->|   Lambda:         |
-|   Load-Inventory  |                            |   Check-Stock     |
-+--------+----------+                            +--------+----------+
-         |                                                |
-         v                                                v
-+-------------------+                             +-------------------+
-|   DynamoDB Table  |                             |       SNS         |
-|   (Inventory)     |                             | (Out-of-Stock Msg)|
-+--------+----------+                             +--------+----------+
-         |                                                |
-         v                                                v
-+-------------------+                             +-------------------+
-| Cognito + Web UI  | <---------------------------|  Email/SMS Alerts |
-+-------------------+     Authenticated Access    +-------------------+
+https://github.com/joshua3309/Serverless-Inventory-Management-System-AWS-/blob/main/archtectural_diagram.png
+
 ⚙️ AWS Services Used
 Service	Role
 Amazon S3	Stores uploaded CSV inventory files
